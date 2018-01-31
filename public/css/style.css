@@ -11272,7 +11272,7 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(/images/login-register.jpg?767794e25e5907d28ea4921e98b75937) no-repeat center center / cover !important;
+  background: url(/images/fondo.png?a24eb680d8e6497cb25dd1fedfed5903) no-repeat center center / cover !important;
   height: 100%;
   position: fixed;
 }

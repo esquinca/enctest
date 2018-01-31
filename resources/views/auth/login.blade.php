@@ -13,7 +13,7 @@
           {{ csrf_field() }}
           <div class="form-group">
             <div class="col-xs-12 text-center">
-              <div class="user-thumb text-center"> <img alt="thumbnail" class="img-circle" width="100" src="../plugins/images/users/genu.jpg">
+              <div class="user-thumb text-center"> <img alt="thumbnail" class="img-circle" width="100" src="../plugins/images/users/user.png">
                 <h3>Login</h3>
               </div>
             </div>
