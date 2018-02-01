@@ -1,6 +1,9 @@
 $(function() {
   graph_rating();
 });
+jQuery('#date-range').datepicker({
+        toggleActive: true
+    });
 function graph_rating() {
   var date= $('#date_search_pral').val();
   var _token = $('input[name="_token"]').val();

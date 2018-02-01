@@ -12,21 +12,17 @@
                             <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> <span class="hide-menu">Logout</span></a></li>
                         </ul>
                     </li>
-                    <li> <a href="index.html" class="waves-effect"><i class="zmdi zmdi-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-inverse pull-right">4</span></span></a>
+                    <li> <a href="index.html" class="waves-effect"><i class="zmdi zmdi-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> <span class="label label-rouded label-inverse pull-right">2</span></span></a>
                         <ul class="nav nav-second-level">
                             <li> <a href="home"><i class=" fa-fw">1</i><span class="hide-menu">Dashboard Pral</span></a> </li>
                             <li> <a href="dashboard_survey"><i class=" fa-fw">2</i><span class="hide-menu">Dashboard Survey</span></a> </li>
-                            <li> <a href="index3.html"><i class=" fa-fw">3</i><span class="hide-menu">Dashboard 3</span></a> </li>
                         </ul>
                     </li>
-                    <li> <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-voicemail fa-fw" data-icon="v"></i> <span class="hide-menu"> eCommerce <span class="fa arrow"></span> </span></a>
+                    <li> <a href="#" class="waves-effect"><i class="mdi mdi-format-color-fill fa-fw"></i> <span class="hide-menu">Gestión<span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">20</span> </span></a>
                         <ul class="nav nav-second-level">
-                            <li> <a href="products.html"><i class="fa-fw">P</i><span class="hide-menu">Products</span></a> </li>
-                            <li> <a href="product-orders.html"><i class="fa-fw">PO</i><span class="hide-menu">Product Orders</span></a> </li>
-                            <li> <a href="product-detail.html"><i class="fa-fw">PD</i><span class="hide-menu">Product Details</span></a> </li>
-                            <li> <a href="product-edit.html"><i class="fa-fw">PE</i><span class="hide-menu">Product Edit</span></a> </li>
-                            <li> <a href="product-cart.html"><i class="fa-fw">PC</i><span class="hide-menu">Product Cart</span></a> </li>
-                            <li> <a href="product-checkout.html"><i class="fa-fw">PC</i><span class="hide-menu">Product Checkout</span></a> </li>
+                            <li><a href="buttons.html"><i class="ti-layout-menu fa-fw"></i> <span class="hide-menu">Clientes</span></a></li>
+                            <li><a href="sweatalert.html"><i class="ti-alert fa-fw"></i> <span class="hide-menu"></span></a></li>
+                            <li><a href="bootstrap.html"><i class="ti-rocket fa-fw"></i> <span class="hide-menu">Bootstrap UI</span></a></li>
                         </ul>
                     </li>
                 </ul>

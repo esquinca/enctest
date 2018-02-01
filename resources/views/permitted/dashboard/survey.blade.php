@@ -18,6 +18,40 @@
 
 @section('content')
 <div class="row">
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="white-box">
+          <div class="row row-in">
+              <div class="stats-row">
+                  <div class="stat-item">
+                    <button id='botonUltimaSemana' type="button" class="btn btn-primary" onclick="remontarDiasPickers(6); loadEncuestasEstadisticasAsync(   null,null,730158   );">
+                      Última semana
+                    </button>
+
+                    <button id='botonUltimoMes' type="button" class="btn btn-primary" onclick="remontarDiasPickers(30); loadEncuestasEstadisticasAsync(   null,null,730158   );">
+                      Último mes
+                    </button>
+
+                    <button id="botonUltimoYear" type="button" class="btn btn-primary" onclick="remontarAniosPickers(1); loadEncuestasEstadisticasAsync(null,null,730158);">
+                      Último año
+                    </button>
+                  </div>
+                  <div class="stat-item">
+                      <div class="input-daterange input-group" id="date-range" >
+                          <input type="text" class="form-control" name="start" /> <span class="input-group-addon bg-info b-0 text-white">to</span>
+                          <input type="text" class="form-control" name="end" />
+                      </div>
+                  </div>
+                  <div class="stat-item">
+                    <button type="button" class="btn btn-primary" onclick="loadEncuestasEstadisticasAsync(null,null,730158)">
+                      <span class="glyphicon glyphicon-filter"> </span> Filtrar por fechas
+                    </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-sm-12">
         <div class="white-box">
             <div class="row row-in">
@@ -163,6 +197,9 @@
   <script src="{{ asset('plugins/bower_components/echarts3/js/echarts-all-3.js')}}"></script>
   <script src="{{ asset('plugins/bower_components/echarts3/js/theme/vintage.js')}}"></script>
   <script src="{{ asset('plugins/bower_components/echarts3/js/theme/dark.js')}}"></script>
+  <!-- Date Picker Plugin JavaScript -->
+  <script src="../plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+
     <script src="js/dashboard/survey.js"></script>
   @else
     <!--NO VER-->

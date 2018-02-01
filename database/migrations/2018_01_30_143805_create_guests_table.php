@@ -18,6 +18,7 @@ class CreateGuestsTable extends Migration
             $table->string('name');
             $table->string('guest_ip');
             $table->string('station_mac');
+            $table->string('guest_mac');
             $table->string('ssid');
             $table->integer('device_id')->unsigned();
             $table->foreign('device_id')->references('id')->on('devices');
