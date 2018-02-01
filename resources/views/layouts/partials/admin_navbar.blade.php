@@ -187,10 +187,20 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li>
+                              <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off"></i>Logout
+                              </a>
+                            </li>
+
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                     <!-- /.dropdown -->
                 </ul>
             </div>

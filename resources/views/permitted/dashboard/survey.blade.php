@@ -97,6 +97,48 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Puntuación Excelente</h3>
+            <ul class="list-inline two-part">
+                <li><i class="fa fa-smile-o text-success"></i></li>
+                <li class="text-right"><span class="counter">350</span></li>
+                <li><span class="">100.00%</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Puntuación Bueno</h3>
+            <ul class="list-inline two-part">
+                <li><i class="fa fa-meh-o text-warning"></i></li>
+                <li class="text-right"><span class="counter">350</span></li>
+                <li><span class="">99.00%</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Puntuación Malo</h3>
+            <ul class="list-inline two-part">
+                <li><i class="fa fa-frown-o text-danger"></i></li>
+                <li class="text-right"><span class="">350</span></li>
+                <li><span class="">99.00%</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Puntuación media</h3>
+            <ul class="list-inline two-part">
+                <li><i class="ti-rss-alt text-success"></i>Excelente</li>
+                <li ><span class="">150</span></li>
+                <li ><span class="">100.00%</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
 @endsection
 
 @push('scripts')
