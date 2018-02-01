@@ -19,7 +19,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">Usuarios </br> <small>Registrados</small></h3>
             <ul class="list-inline two-part">
@@ -28,7 +28,28 @@
             </ul>
         </div>
     </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Usuarios</br> <small>Que vieron las encuestas</small></h3>
+            <ul class="list-inline two-part">
+                <li><i class="fa fa-eye text-success"></i></li>
+                <li class="text-right"><span class="counter">0</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-xs-12">
+        <div class="white-box">
+            <h3 class="box-title">Usuarios </br> <small>Que omitieron las encuestas</small></h3>
+            <ul class="list-inline two-part">
+                <li><i class="fa fa-eye-slash text-danger"></i></li>
+                <li class="text-right"><span class="">0</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">No. Preguntas </br> <small>Si contestadas</small></h3>
             <ul class="list-inline two-part">
@@ -37,7 +58,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">No. Preguntas </br> <small>No contestadas</small></h3>
             <ul class="list-inline two-part">
@@ -46,11 +67,11 @@
             </ul>
         </div>
     </div>
-    <div class="col-lg-3 col-sm-6 col-xs-12">
+    <div class="col-lg-4 col-sm-4 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">No. SSID</br> <small>Usadas</small></h3>
             <ul class="list-inline two-part">
-                <li><i class="ti-rss-alt text-success"></i></li>
+                <li><i class="ti-rss-alt text-warning"></i></li>
                 <li class="text-center"><span class="">0</span></li>
             </ul>
         </div>

@@ -132,17 +132,37 @@
         <div class="white-box">
             <h3 class="box-title">Puntuación media</h3>
             <ul class="list-inline two-part">
-                <li><i class="ti-rss-alt text-success"></i>Excelente</li>
-                <li ><span class="">150</span></li>
+                <li><i class="fa fa-percent text-success"></i></li><h2 style="display: inline-block;">Excelente</h2>
                 <li ><span class="">100.00%</span></li>
             </ul>
         </div>
     </div>
 </div>
+
+<div class="row">
+  <div class="col-lg-12 col-sm-12 col-xs-12">
+    <div class="white-box">
+      <h3 class="box-title"><small class="pull-right m-t-10 text-warning"><i class="fa fa-file"></i> <p style="display: inline-block;">12</p> Encuestas respondidas</small>Historial de puntaciones</h3>
+      <div class="stats-row">
+          <div class="stat-item">
+              <h6>Excelente</h6> <b>80.40%</b></div>
+          <div class="stat-item">
+              <h6>Bueno</h6> <b>15.40%</b></div>
+          <div class="stat-item">
+              <h6>Malo</h6> <b>5.50%</b></div>
+      </div>
+      <div id="historical_ratings" style="width: 100%; min-height: 200px;"></div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @push('scripts')
   @if( auth()->user()->can('View dashboard pral') )
+  <!--Echart 3-->
+  <script src="{{ asset('plugins/bower_components/echarts3/js/echarts-all-3.js')}}"></script>
+  <script src="{{ asset('plugins/bower_components/echarts3/js/theme/vintage.js')}}"></script>
+  <script src="{{ asset('plugins/bower_components/echarts3/js/theme/dark.js')}}"></script>
     <script src="js/dashboard/survey.js"></script>
   @else
     <!--NO VER-->
