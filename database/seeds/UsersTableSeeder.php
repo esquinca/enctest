@@ -185,6 +185,10 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $user_1->telephone ='9981892988';
     $user_1->password = bcrypt('123456');
     $user_1->save();
+    $user_1->assignRole($superadminRole);
+    //Permisos para el super usuario
+    //- Dashboard
+    $user_1->givePermissionTo('View dashboard pral');
 
     }
 }

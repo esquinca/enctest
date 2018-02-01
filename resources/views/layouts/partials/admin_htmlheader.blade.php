@@ -9,8 +9,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css" />
+    <link href="{{ asset('/css/animate.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ mix('/css/style.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
