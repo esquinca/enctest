@@ -31,4 +31,4 @@ Route::get('/main', 'encController@index');
 Route::post('/cache', 'encController@cacheValues');
 Route::post('/mac_check', 'encController@macquery');
 
-Route::get('/test', 'encController@macquery');
+Route::get('/test', 'encController@testfunc');

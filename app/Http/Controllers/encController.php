@@ -8,6 +8,8 @@ use Session;
 
 use DB;
 
+use Jenssegers\Agent\Agent;
+
 class encController extends Controller
 {    
 	public function index()
@@ -40,32 +42,61 @@ class encController extends Controller
 		session(['vlan' => $request->vlan]);
 		session(['res' => $request->res]);
 		session(['auth' => $request->auth]);
+
+
+		// $datos = [
+		//  'tema' => $subject,
+		//  'ip' => $host,
+		//  'hotel' => $nombrehotel,
+		//  'nombre' => $nombre,
+		//  'mensaje' => $msj,
+		// ];
+
 		return 'OK';
 	}
 
-	public function macquery()
+	public function insertNewGuest()
 	{
+		# code...
+	}
 
+	public function macquery(Request $request)
+	{
+		$bool = "FALSE";
+		$client_mac = $request->client_mac;
 
-		//$res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', 'EC:9B:F3:6F:F6:49')->first();
+		$res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', $client_mac)->value('guest_mac');
+		
+		if ($client_mac === $res) {
+			$bool = "TRUE";
+			return $bool;
+		}else{
+			return $bool;
+		}
+		// $res = DB::table('guests')
+  //       ->whereExists(function ($query) {
+  //           $query->select(DB::raw(1))
+		// 		->from('guests')
+		// 		->where('guest_mac', '=', 'EC:9B:F3:6F:F6:47');
+  //           })
+  //           ->get();
 
-		$res = DB::table('guests')
-        ->whereExists(function ($query) {
-            $query->select(DB::raw(1))
-				->from('guests')
-				->where('guest_mac', '=', 'EC:9B:F3:6F:F6:47');
-            })
-            ->get();
+	}
 
-		// if ($res === TRUE) {
-		// 	//dd($res);
-		// 	return '1';
-		// }else{
-		// 	//dd($res);
-		// 	return '0';
-		// }
+	public function testfunc()
+	{
+        $agent = new Agent();
+        $bool = $agent->isDesktop();
 
-		dd($res);
+        $languages = $agent->languages();
+
+        $browser = $agent->browser();
+        $version1 = $agent->version($browser);
+
+        $platform = $agent->platform();
+        $version2 = $agent->version($platform);
+
+        dd($agent);
 	}
 
 }

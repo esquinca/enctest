@@ -25,7 +25,7 @@
 				<input type="hidden" id="password" name="password" value="123" class="form-control" />
 				<input class="form-control" type="hidden" id="sip" name="sip" value="algo" />
 				<input class="form-control" type="hidden" id="mac" name="mac" value="algo" />
-				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="algo" />
+				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="EC:9B:F3:6F:F6:47" />
 				<input class="form-control" type="hidden" id="uip" name="uip" value="algo" />
 				<input class="form-control" type="hidden" id="ssid" name="ssid" value="algo" />
 				<input class="form-control" type="hidden" id="vlan" name="vlan" value="algo" />
@@ -42,6 +42,7 @@
 
 		function init() {
 			CacheOnLoad();
+			existence();
 		}
 
 		function existence() {
@@ -50,11 +51,11 @@
 			   type: "POST",
 			   data: objData,
 			   success: function (data) {
-			     if (data === "OK") {
-			     	console.log('Cacheados.');
+			     if (data === "TRUE") {
+			     	console.log('existe.');
 			     	//$('#formpr').submit();
 			     }else{
-			     	console.log('algun error cache');
+			     	console.log('FALSE');
 			     	//$('#formpr').submit();
 			     }
 			   },
