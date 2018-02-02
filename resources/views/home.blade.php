@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('contentheader_title')
-  @if( auth()->user()->can('View dashboard pral') )
+  @if( auth()->user()->can('View blade dashboard pral') )
     {{ trans('message.dashboard') }}
   @else
     {{ trans('message.bienvenido') }}
@@ -9,7 +9,7 @@
 @endsection
 
 @section('breadcrumb_ubication')
-  @if( auth()->user()->can('View dashboard pral') )
+  @if( auth()->user()->can('View blade dashboard pral') )
     {{ trans('message.dashboard') }}
   @else
     {{ trans('message.bienvenido') }}
@@ -98,7 +98,7 @@
 @endsection
 
 @push('scripts')
-  @if( auth()->user()->can('View dashboard pral') )
+  @if( auth()->user()->can('View blade dashboard pral') )
     <!--Echart 3-->
     <script src="{{ asset('plugins/bower_components/echarts3/js/echarts-all-3.js')}}"></script>
     <script src="{{ asset('plugins/bower_components/echarts3/js/theme/vintage.js')}}"></script>

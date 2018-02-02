@@ -34,7 +34,10 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
       $userRole = Role::create(['name' => 'UserRole']);
    $monitorRole = Role::create(['name' => 'Monitor']);
       //- Permission Blade
-    $viewbladeone= Permission::create(['name' => 'View dashboard pral']);
+    $viewbladedashboard_one= Permission::create(['name' => 'View blade dashboard pral']);
+    $viewbladedashboard_two= Permission::create(['name' => 'View blade dashboard survey']);
+    $viewblademarketing_one= Permission::create(['name' => 'View blade create survey']);
+    $viewblademarketing_two= Permission::create(['name' => 'View blade edit survey']);
     $viewbladetwo= Permission::create(['name' => 'View venue']);
     $viewbladethree= Permission::create(['name' => 'View cadena']);
     $viewbladefour= Permission::create(['name' => 'View sector']);
@@ -42,6 +45,9 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $viewbladesix= Permission::create(['name' => 'View question']);
     $viewbladeseven= Permission::create(['name' => 'View qualification']);
     $viewbladeeight= Permission::create(['name' => 'View persons']);
+
+
+
     //- Configuración
     $viewcreatuserconfiguration = Permission::create(['name' => 'Create user']);
     $viewedituserconfiguration = Permission::create(['name' => 'Edit user']);
@@ -188,7 +194,10 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $user_1->assignRole($superadminRole);
     //Permisos para el super usuario
     //- Dashboard
-    $user_1->givePermissionTo('View dashboard pral');
+    $user_1->givePermissionTo('View blade dashboard pral');
+    $user_1->givePermissionTo('View blade dashboard survey');
+    $user_1->givePermissionTo('View blade create survey');
+    $user_1->givePermissionTo('View blade edit survey');
 
     }
 }

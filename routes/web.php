@@ -21,6 +21,9 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/dashboard_survey', 'DashboardTwoController@index');
+
+    Route::get('/create_survey', 'MarketingController@index_create');
+    Route::get('/edit_survey', 'MarketingController@index_edit');
 });
 
 Route::get('/enc1', 'encController@index');
