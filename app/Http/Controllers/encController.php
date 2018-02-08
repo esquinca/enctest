@@ -19,17 +19,17 @@ class encController extends Controller
 
 	public function index2()
 	{
-		return view('enc2');
+		return view('enc1');
 	}
 
 	public function index3()
 	{
-		return view('enc3');
+		return view('enc2');
 	}
 
 	public function index4()
 	{
-		return view('enc4');
+		return view('enc3');
 	}
 
 	public function cacheValues(Request $request)
@@ -55,24 +55,37 @@ class encController extends Controller
 		return 'OK';
 	}
 
-	public function insertNewGuest()
+	public function insertNewGuest($data)
 	{
-		# code...
+		DB::table('guests')->insert($data);
+		
+		// DB::table('guests')->insert([
+		// 	'' => ,
+		// ]);
 	}
 
 	public function macquery(Request $request)
 	{
-		$bool = "FALSE";
+		$codenum = "0";
 		$client_mac = $request->client_mac;
+		$venue_ssid = $request->ssid;
+
+		$data = [];
 
 		$res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', $client_mac)->value('guest_mac');
 		
-		if ($client_mac === $res) {
-			$bool = "TRUE";
-			return $bool;
-		}else{
-			return $bool;
+		$ssid = DB::table('venues')->select('id')->where('SSID', '=', $venue_ssid)->value('id');
+
+		//$result = DB::select('CALL ComparativoNPS(?, ?, ?)', array($venue, $survey, $guest));
+
+		if (empty($res)) {
+			
+			return $codenum;
+		}else if($client_mac === $res){
+			$codenum = "TRUE";
+			return $codenum;
 		}
+
 		// $res = DB::table('guests')
   //       ->whereExists(function ($query) {
   //           $query->select(DB::raw(1))
@@ -96,7 +109,9 @@ class encController extends Controller
         $platform = $agent->platform();
         $version2 = $agent->version($platform);
 
-        dd($agent);
+        $ssid = DB::table('venues')->select('id')->where('SSID', '=', 'PRUEBA1-X')->value('id');
+
+        dd($ssid);
 	}
 
 }

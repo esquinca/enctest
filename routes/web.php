@@ -27,6 +27,9 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 Route::get('/main', 'encController@index');
+Route::get('/enc1', 'encController@index2');
+Route::get('/enc2', 'encController@index3');
+Route::get('/enc3', 'encController@index4');
 
 Route::post('/cache', 'encController@cacheValues');
 Route::post('/mac_check', 'encController@macquery');

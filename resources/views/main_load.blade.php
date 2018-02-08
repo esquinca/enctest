@@ -25,9 +25,9 @@
 				<input type="hidden" id="password" name="password" value="123" class="form-control" />
 				<input class="form-control" type="hidden" id="sip" name="sip" value="algo" />
 				<input class="form-control" type="hidden" id="mac" name="mac" value="algo" />
-				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="EC:9B:F3:6F:F6:47" />
+				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="EC:9B:F3:6F:F6:40" />
 				<input class="form-control" type="hidden" id="uip" name="uip" value="algo" />
-				<input class="form-control" type="hidden" id="ssid" name="ssid" value="algo" />
+				<input class="form-control" type="hidden" id="ssid" name="ssid" value="PRUEBA1-X" />
 				<input class="form-control" type="hidden" id="vlan" name="vlan" value="algo" />
 				<input class="form-control" type="hidden" id="res" name="res" value="algo" />
 				<input class="form-control" type="hidden" id="auth" name="auth" value="algo">
@@ -35,9 +35,16 @@
 	<script src="{{ asset('/js/libs.js') }}"></script>
 	<script type="text/javascript">
 		let objData;
+		let currentLocation;
+		let protocol;
 		$(function() {
+			protocol = window.location.protocol + '//';
+			currentLocation = window.location.host;
+			console.log(protocol + currentLocation);
+
 			objData = $("#formpr").find("select,textarea, input").serialize();
 			init();
+			
 		});
 
 		function init() {
@@ -46,17 +53,26 @@
 		}
 
 		function existence() {
+			let path1 = "/enc1";
+			let path2 = "/enc2";
+			let path3 = "/enc3";
+			let url1 = protocol + currentLocation + path1;
+			console.log(url1);
 			$.ajax({
 			   url: "/mac_check",
 			   type: "POST",
 			   data: objData,
 			   success: function (data) {
+			   	//console.log(data);
 			     if (data === "TRUE") {
 			     	console.log('existe.');
 			     	//$('#formpr').submit();
+			     	//window.open(); Abrir la encuesta dependiendo a la respuesta.
 			     }else{
 			     	console.log('FALSE');
-			     	//$('#formpr').submit();
+
+			     	//$('#formpr').submit(); Abrir encuesta dependiendo la respuesta.
+			     	window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
 			     }
 			   },
 			   error: function (data) {
