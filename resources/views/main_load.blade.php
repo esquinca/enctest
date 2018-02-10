@@ -25,7 +25,7 @@
 				<input type="hidden" id="password" name="password" value="123" class="form-control" />
 				<input class="form-control" type="hidden" id="sip" name="sip" value="algo" />
 				<input class="form-control" type="hidden" id="mac" name="mac" value="algo" />
-				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="EC:9B:F3:6F:F6:40" />
+				<input class="form-control" type="hidden" id="client_mac" name="client_mac" value="EC:9B:F3:6F:F6:47" />
 				<input class="form-control" type="hidden" id="uip" name="uip" value="algo" />
 				<input class="form-control" type="hidden" id="ssid" name="ssid" value="PRUEBA1-X" />
 				<input class="form-control" type="hidden" id="vlan" name="vlan" value="algo" />
@@ -63,17 +63,17 @@
 			   type: "POST",
 			   data: objData,
 			   success: function (data) {
-			   	//console.log(data);
-			     if (data === "TRUE") {
-			     	console.log('existe.');
+			   	console.log(data);
+			     if (data === "0") {
+
 			     	//$('#formpr').submit();
 			     	//window.open(); Abrir la encuesta dependiendo a la respuesta.
-			     }else{
-			     	console.log('FALSE');
+			     }else if(){
+
 
 			     	//$('#formpr').submit(); Abrir encuesta dependiendo la respuesta.
-			     	window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
-			     }
+			     	//window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
+			     }else if(){}
 			   },
 			   error: function (data) {
 			     console.log('Error:', data);

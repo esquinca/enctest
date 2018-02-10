@@ -76,24 +76,26 @@ class encController extends Controller
 		
 		$ssid = DB::table('venues')->select('id')->where('SSID', '=', $venue_ssid)->value('id');
 
-		//$result = DB::select('CALL ComparativoNPS(?, ?, ?)', array($venue, $survey, $guest));
+		//$result = DB::select('CALL GetGuestSurvey(?, ?, ?)', array($venue, $survey, $client_mac));
+
+		$resultp2 = DB::select('CALL GetEncuestaP2(?, ?)', array($venue_ssid, $client_mac));
+		$resultp3 = DB::select('CALL GetEncuestaP3(?, ?)', array($venue_ssid, $client_mac));
 
 		if (empty($res)) {
-			
 			return $codenum;
-		}else if($client_mac === $res){
-			$codenum = "TRUE";
+		}else if($resultp2[0]->count === 0){
+			// validacon del procedure enc2 y 3
+			$codenum = "1";
 			return $codenum;
 		}
-
-		// $res = DB::table('guests')
-  //       ->whereExists(function ($query) {
-  //           $query->select(DB::raw(1))
-		// 		->from('guests')
-		// 		->where('guest_mac', '=', 'EC:9B:F3:6F:F6:47');
-  //           })
-  //           ->get();
-
+		else if($resultp3[0]->count === 0){
+			$codenum = "2";
+			return $codenum;
+		}else{
+			$codenum = "3";
+			return $codenum;
+		}
+		
 	}
 
 	public function testfunc()
@@ -110,8 +112,12 @@ class encController extends Controller
         $version2 = $agent->version($platform);
 
         $ssid = DB::table('venues')->select('id')->where('SSID', '=', 'PRUEBA1-X')->value('id');
+        //$result = DB::select('CALL GetGuestSurvey(?, ?, ?)', array(1, 4, 'EC:9B:F3:6F:F6:47'));
+		$resultp2 = DB::select('CALL GetEncuestaP3(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));
 
-        dd($ssid);
+
+
+        dd($resultp2[0]->count);
 	}
 
 }
