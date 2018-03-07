@@ -32,6 +32,9 @@
 				<input class="form-control" type="hidden" id="res" name="res" value="algo" />
 				<input class="form-control" type="hidden" id="auth" name="auth" value="algo">
 			</form>
+			<h1>MAIN LOAD</h1>
+			<h1 id="texttest"></h1>
+			<h1 id="texttest2"></h1>
 	<script src="{{ asset('/js/libs.js') }}"></script>
 	<script type="text/javascript">
 		let objData;
@@ -44,7 +47,6 @@
 
 			objData = $("#formpr").find("select,textarea, input").serialize();
 			init();
-			
 		});
 
 		function init() {
@@ -57,6 +59,8 @@
 			let path2 = "/enc2";
 			let path3 = "/enc3";
 			let url1 = protocol + currentLocation + path1;
+			let url2 = protocol + currentLocation + path2;
+			let url3 = protocol + currentLocation + path3;
 			console.log(url1);
 			$.ajax({
 			   url: "/mac_check",
@@ -65,15 +69,19 @@
 			   success: function (data) {
 			   	console.log(data);
 			     if (data === "0") {
-
 			     	//$('#formpr').submit();
-			     	//window.open(); Abrir la encuesta dependiendo a la respuesta.
-			     }else if(){
-
-
+			     	$('#texttest').text('window 0');
+			     	window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta.
+			     }else if(data === "1"){
 			     	//$('#formpr').submit(); Abrir encuesta dependiendo la respuesta.
-			     	//window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
-			     }else if(){}
+			     	$('#texttest').text('window 1');
+			     	window.open(url2, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
+			     }else if(data === "2"){
+			     	$('#texttest').text('window 2');
+			     	window.open(url3, '_self');
+			     }else{
+			     	console.log('no se que poner');
+			     }
 			   },
 			   error: function (data) {
 			     console.log('Error:', data);

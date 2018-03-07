@@ -111,13 +111,16 @@ class encController extends Controller
         $platform = $agent->platform();
         $version2 = $agent->version($platform);
 
+     $res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', 'EC:9B:F3:6F:F6:40')->value('guest_mac');
         $ssid = DB::table('venues')->select('id')->where('SSID', '=', 'PRUEBA1-X')->value('id');
         //$result = DB::select('CALL GetGuestSurvey(?, ?, ?)', array(1, 4, 'EC:9B:F3:6F:F6:47'));
-		$resultp2 = DB::select('CALL GetEncuestaP3(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));
+        $resultp2 = DB::select('CALL GetEncuestaP2(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));
+		$resultp3 = DB::select('CALL GetEncuestaP3(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));
 
 
+		dd($resultp2[0]->count, $res);
 
-        dd($resultp2[0]->count);
+        
 	}
 
 }
