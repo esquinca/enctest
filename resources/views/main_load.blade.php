@@ -6,7 +6,7 @@
 <body>
 			<a href="#" id="btnredir" onClick="btnredirpush();" style="display: none"><table cellspacing="0" cellpadding="0" width="100%"><tr><td style="background-color:#3bcdc3;border-radius:0px;color:#ffffff;display:inline-block;font-family:'Lato', Helvetica, Arial, sans-serif;font-weight:bold;font-size:13px;line-height:33px;text-align:center;text-decoration:none;width:150px;-webkit-text-size-adjust:none;mso-hide:all;"><span style="color:#ffffff">Click Continuar!</span></td></tr></table></a>
 
-<!-- 			<form method="POST" action="http://{{ isset($_GET['sip']) ? $_GET['sip'] : '' }}:9997/login" id="formpr" role="login">
+			<form method="POST" action="http://{{ isset($_GET['sip']) ? $_GET['sip'] : '' }}:9997/login" id="formpr" role="login">
 				{{ csrf_field() }}
 				<input type="hidden" id="username" name="username" value="TESTX" class="form-control" />
 				<input type="hidden" id="password" name="password" value="123" class="form-control" />
@@ -18,8 +18,8 @@
 				<input class="form-control" type="hidden" id="vlan" name="vlan" value="{{ isset($_GET['vlan']) ? $_GET['vlan'] : '' }}" />
 				<input class="form-control" type="hidden" id="res" name="res" value="{{ isset($_GET['res']) ? $_GET['res'] : '' }}" />
 				<input class="form-control" type="hidden" id="auth" name="auth" value="{{ isset($_GET['auth']) ? $_GET['auth'] : '' }}">
-			</form> -->
-			<form method="POST" action="http://172.200.5.55:9997/login" id="formpr" role="login">
+			</form>
+<!-- 			<form method="POST" action="http://172.200.5.55:9997/login" id="formpr" role="login">
 				{{ csrf_field() }}
 				<input type="hidden" id="username" name="username" value="TESTX" class="form-control" />
 				<input type="hidden" id="password" name="password" value="123" class="form-control" />
@@ -31,7 +31,7 @@
 				<input class="form-control" type="hidden" id="vlan" name="vlan" value="algo" />
 				<input class="form-control" type="hidden" id="res" name="res" value="algo" />
 				<input class="form-control" type="hidden" id="auth" name="auth" value="algo">
-			</form>
+			</form> -->
 			<h1>MAIN LOAD</h1>
 			<h1 id="texttest"></h1>
 			<h1 id="texttest2"></h1>

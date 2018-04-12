@@ -67,8 +67,31 @@ class encController extends Controller
 	public function macquery(Request $request)
 	{
 		$codenum = "0";
+		$agent = new Agent();
+		
+		$sip = $request->sip;
+		$mac = $request->mac;
 		$client_mac = $request->client_mac;
+		$uip = $request->uip;
 		$venue_ssid = $request->ssid;
+		$vlan = $request->vlan;
+
+		$platform = $agent->platform();
+        $browser = $agent->browser();
+        $version1 = $agent->version($browser);
+        $device = 5;
+
+        if ($agent->isDesktop()) {
+        	$device = 4;
+        }elseif ($agent->isTablet()) {
+        	$device = 3;
+        }elseif ($agent->isAndroidOS()) {
+        	$device = 2;
+        }elseif ($agent->is('iPhone') || $agent->is('iOS')) {
+        	$device = 1;
+        }else{
+        	$device = 5;
+        }
 
 		$data = [];
 
@@ -82,6 +105,17 @@ class encController extends Controller
 		$resultp3 = DB::select('CALL GetEncuestaP3(?, ?)', array($venue_ssid, $client_mac));
 
 		if (empty($res)) {
+			$datos = [
+			 'guest_ip' => $uip,
+			 'station_mac' => $mac,
+			 'guest_mac' => $client_mac,
+			 'ssid' => $venue_ssid,
+			 'user_agent' => $platform,
+			 'web_browser' => $browser,
+			 'ver_browser' => $version1,
+			 'device_id' => $device
+			];
+			$this->insertNewGuest($datos);
 			return $codenum;
 		}else if($resultp2[0]->count === 0){
 			// validacon del procedure enc2 y 3
@@ -102,7 +136,10 @@ class encController extends Controller
 	{
         $agent = new Agent();
         $bool = $agent->isDesktop();
+        $device = $agent->device();
 
+        // iPhone
+        // iOS
         $languages = $agent->languages();
 
         $browser = $agent->browser();
@@ -118,7 +155,7 @@ class encController extends Controller
 		$resultp3 = DB::select('CALL GetEncuestaP3(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));
 
 
-		dd($resultp2[0]->count, $res);
+		dd($device, $platform);
 
         
 	}

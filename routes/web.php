@@ -35,3 +35,7 @@ Route::post('/cache', 'encController@cacheValues');
 Route::post('/mac_check', 'encController@macquery');
 
 Route::get('/test', 'encController@testfunc');
+
+Route::get('/enc/{id_enc}', function($id_enc){
+	return 'id de encuesta:' . $id_enc;
+});
