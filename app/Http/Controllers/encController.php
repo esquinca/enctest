@@ -66,17 +66,13 @@ class encController extends Controller
 	public function insertNewGuest($data)
 	{
 		DB::table('guests')->insert($data);
-		
-		// DB::table('guests')->insert([
-		// 	'' => ,
-		// ]);
 	}
 
 	public function macquery(Request $request)
 	{
 		$codenum = "0";
 		$agent = new Agent();
-		
+
 		$sip = $request->sip;
 		$mac = $request->mac;
 		$client_mac = $request->client_mac;
@@ -100,8 +96,6 @@ class encController extends Controller
         }else{
         	$device = 5;
         }
-
-		$data = [];
 
 		$res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', $client_mac)->value('guest_mac');
 		
