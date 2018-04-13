@@ -7,4 +7,5 @@ return [
     'dashboard_survey' => 'Dashboard encuesta',
     'create_survey' =>  'Crear encuesta',
     'edit_survey' =>  'Editar encuesta',
+    'survey' => 'Encuesta',
 ];

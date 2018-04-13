@@ -9,6 +9,8 @@ use Session;
 use DB;
 
 use Jenssegers\Agent\Agent;
+use App\Venue;
+use App\Survey;
 
 class encController extends Controller
 {    
@@ -17,9 +19,15 @@ class encController extends Controller
 		return view('main_load');
 	}
 
-	public function index2()
+	public function index2($no_enc)
 	{
-		return view('enc1');
+        $id_survey = $no_enc;
+        $search_questions = Survey::find($id_survey)->surveys()->where('survey_id', $id_survey)->get();
+        $id_venue = DB::table('survey_venue')->select('venue_id')->where('survey_id', '=', $id_survey)->value('venue_id');
+        $hotels = Venue::select('name')->where('id', $id_venue)->value('name');
+        
+        
+		return view('guest.survey',compact('hotels', 'search_questions'));
 	}
 
 	public function index3()
