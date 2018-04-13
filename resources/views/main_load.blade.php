@@ -58,6 +58,7 @@
 			let path1 = "/enc1";
 			let path2 = "/enc2";
 			let path3 = "/enc3";
+			let url0 = protocol + currentLocation + '/enc1/';
 			let url1 = protocol + currentLocation + path1;
 			let url2 = protocol + currentLocation + path2;
 			let url3 = protocol + currentLocation + path3;
@@ -68,20 +69,23 @@
 			   data: objData,
 			   success: function (data) {
 			   	console.log(data);
-			     if (data === "0") {
-			     	//$('#formpr').submit();
-			     	$('#texttest').text('window 0');
-			     	window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta.
-			     }else if(data === "1"){
-			     	//$('#formpr').submit(); Abrir encuesta dependiendo la respuesta.
-			     	$('#texttest').text('window 1');
-			     	window.open(url2, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
-			     }else if(data === "2"){
-			     	$('#texttest').text('window 2');
-			     	window.open(url3, '_self');
-			     }else{
-			     	console.log('no se que poner');
-			     }
+			   	url0 = url0 + data;
+			   	console.log(url0);
+			   	window.open(url0, '_self');
+			     // if (data === "0") {
+			     // 	//$('#formpr').submit();
+			     // 	$('#texttest').text('window 0');
+			     // 	window.open(url1, '_self'); //Abrir la encuesta dependiendo a la respuesta.
+			     // }else if(data === "1"){
+			     // 	//$('#formpr').submit(); Abrir encuesta dependiendo la respuesta.
+			     // 	$('#texttest').text('window 1');
+			     // 	window.open(url2, '_self'); //Abrir la encuesta dependiendo a la respuesta (Ya funciona).
+			     // }else if(data === "2"){
+			     // 	$('#texttest').text('window 2');
+			     // 	window.open(url3, '_self');
+			     // }else{
+			     // 	console.log('no se que poner');
+			     // }
 			   },
 			   error: function (data) {
 			     console.log('Error:', data);

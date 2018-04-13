@@ -118,18 +118,22 @@ class encController extends Controller
 			 'device_id' => $device
 			];
 			$this->insertNewGuest($datos);
-			return $codenum;
+			$priority = DB::table('survey_venue')->select('survey_id')->where('priority_id', '=', 1)->value('survey_id');
+			$codenum = "0";
+			return $priority;
 		}else if($resultp2[0]->count === 0){
 			// validacon del procedure enc2 y 3
 			$codenum = "1";
-			return $codenum;
+			$priority = DB::table('survey_venue')->select('survey_id')->where('priority_id', '=', 2)->value('survey_id');
+			return $priority;
 		}
 		else if($resultp3[0]->count === 0){
-			$codenum = "2";
-			return $codenum;
+			$priority = DB::table('survey_venue')->select('survey_id')->where('priority_id', '=', 3)->value('survey_id');
+			//$codenum = "2";
+			return $priority;
 		}else{
-			$codenum = "3";
-			return $codenum;
+			//$codenum = "3";
+			return 'FALSE';
 		}
 		
 	}
