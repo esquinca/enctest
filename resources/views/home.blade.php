@@ -19,6 +19,12 @@
 
 @section('content')
 <div class="row">
+    <div id="app" class="col-lg-12 col-sm-12 col-xs-12">
+      <info-hotels></info-hotels>        
+    </div>
+</div>
+
+<div class="row">
     <div class="col-lg-4 col-sm-4 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">Usuarios </br> <small>Registrados</small></h3>

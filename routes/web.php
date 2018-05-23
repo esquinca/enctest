@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/create_survey', 'MarketingController@index_create');
     Route::get('/edit_survey', 'MarketingController@index_edit');
+
+    Route::post('search_venue', 'HomeController@search_venue');
 });
 
 Route::get('/main', 'encController@index');

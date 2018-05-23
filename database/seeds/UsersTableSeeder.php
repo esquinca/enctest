@@ -46,14 +46,14 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $viewbladeseven= Permission::create(['name' => 'View qualification']);
     $viewbladeeight= Permission::create(['name' => 'View persons']);
 
-
-
     //- Configuración
     $viewcreatuserconfiguration = Permission::create(['name' => 'Create user']);
     $viewedituserconfiguration = Permission::create(['name' => 'Edit user']);
     $viewdeleteuserconfiguration = Permission::create(['name' => 'Delete user']);
     $viewconfiguration = Permission::create(['name' => 'View Configuration']);
     $vieweditconfiguration = Permission::create(['name' => 'Edit Configuration']);
+
+    $viewhotelconfiguration = Permission::create(['name' => 'View all hotels']);
     //Timezone
     $tz_2 = new Timezone;  $tz_2->name='Africa/Abidjan';  $tz_2->save();
     $tz_3 = new Timezone;  $tz_3->name='Africa/Accra';  $tz_3->save();
@@ -198,6 +198,7 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $user_1->givePermissionTo('View blade dashboard survey');
     $user_1->givePermissionTo('View blade create survey');
     $user_1->givePermissionTo('View blade edit survey');
+    $user_1->givePermissionTo('View all hotels');
 
     }
 }

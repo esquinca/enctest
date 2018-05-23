@@ -20,4 +20,5 @@ let mix = require('laravel-mix');
      'resources/assets/plugins/bower_components/styleswitcher/jQuery.style.switcher.js'
    ], 'public/js/libs.js');
 
-   mix.less('resources/assets/less/style.less', 'public/css');
+   mix.less('resources/assets/less/style.less', 'public/css')
+      .js('resources/assets/js/app.js', 'public/js/code_vue.js');
