@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQualificationsTable extends Migration
+class CreatePrioritiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateQualificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('qualifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('display_name');
-            $table->timestamps();
+        Schema::create('priorities', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('name');
+          $table->timestamps();
         });
     }
 
@@ -28,6 +27,6 @@ class CreateQualificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qualifications');
+        Schema::dropIfExists('priorities');
     }
 }

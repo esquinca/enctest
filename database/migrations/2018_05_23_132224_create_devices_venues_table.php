@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSurveyVenueTable extends Migration
+class CreateDevicesVenuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateSurveyVenueTable extends Migration
      */
     public function up()
     {
-        Schema::create('survey_venue', function (Blueprint $table) {
+        Schema::create('devices_venues', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('survey_id')->unsigned();
+            $table->string('MAC')->nullable();
+            $table->string('Serie')->nullable();
+            $table->string('Descripcion')->nullable();
+            $table->string('Latitude')->nullable();
+            $table->string('Longitude')->nullable();
             $table->integer('venue_id')->unsigned();
-            $table->integer('priority_id')->unsigned();
-            $table->foreign('survey_id')->references('id')->on('surveys');
             $table->foreign('venue_id')->references('id')->on('venues');
-            $table->foreign('priority_id')->references('id')->on('priorities');
-            // $table->timestamps();
+            $table->timestamps();
         });
     }
 
@@ -32,6 +33,6 @@ class CreateSurveyVenueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey_venue');
+        Schema::dropIfExists('devices_venues');
     }
 }

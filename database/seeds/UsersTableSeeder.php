@@ -5,7 +5,13 @@ use App\Menu;
 use App\Timezone;
 use App\Sector;
 use App\Category;
+use App\Device;
 use Carbon\Carbon;
+use App\Priority;
+use App\Qualification;
+use App\Question;
+use App\Survey;
+use App\Venue;
 
 use Illuminate\Database\Seeder;
 
@@ -26,7 +32,13 @@ class UsersTableSeeder extends Seeder
       Role::truncate();
       User::truncate();
       Section::truncate();
-
+      Device::truncate();
+      Priority::truncate();
+      Qualification::truncate();
+      Question::truncate();
+      Sector::truncate();
+      Survey::truncate();
+      Venue::truncate();
       //Creamos los roles predeterminados
 $superadminRole = Role::create(['name' => 'SuperAdmin']);
      $adminRole = Role::create(['name' => 'Admin']);
@@ -192,6 +204,26 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $user_1->password = bcrypt('123456');
     $user_1->save();
     $user_1->assignRole($superadminRole);
+
+    $user_2 = new User;
+    $user_2->name='cliente';
+    $user_2->last_name='pech';
+    $user_2->email='asd@gmail.com';
+    $user_2->city='Cancún, México';
+    $user_2->telephone ='9981892982';
+    $user_2->password = bcrypt('123456');
+    $user_2->save();
+    $user_2->assignRole($userRole);
+
+    $user_3 = new User;
+    $user_3->name='Jose';
+    $user_3->last_name='Esquinca';
+    $user_3->email='jesquinca@sitwifi.com';
+    $user_3->city='Cancún, México';
+    $user_3->telephone ='2678474';
+    $user_3->password = bcrypt('123456');
+    $user_3->save();
+    $user_3->assignRole($userRole);
     //Permisos para el super usuario
     //- Dashboard
     $user_1->givePermissionTo('View blade dashboard pral');
@@ -199,6 +231,128 @@ $superadminRole = Role::create(['name' => 'SuperAdmin']);
     $user_1->givePermissionTo('View blade create survey');
     $user_1->givePermissionTo('View blade edit survey');
     $user_1->givePermissionTo('View all hotels');
+
+    $user_3->givePermissionTo('View blade dashboard pral');
+    $user_3->givePermissionTo('View blade dashboard survey');
+    $user_3->givePermissionTo('View blade create survey');
+    $user_3->givePermissionTo('View blade edit survey');
+    $user_3->givePermissionTo('View all hotels');
+
+    //Devices
+    $devices_1 = new Device;
+    $devices_1->name='Device Iphone';
+    $devices_1->save();
+
+    $devices_2 = new Device;
+    $devices_2->name='Device Android';
+    $devices_2->save();
+
+    $devices_3 = new Device;
+    $devices_3->name='Device Tablet';
+    $devices_3->save();
+
+    $devices_4 = new Device;
+    $devices_4->name='Device PC o Portatil';
+    $devices_4->save();
+
+    $devices_5 = new Device;
+    $devices_5->name='Device Unknown';
+    $devices_5->save();
+
+    //Priority
+    $priority_1 = new Priority;
+    $priority_1->name='Primero';
+    $priority_1->save();
+
+    $priority_2 = new Priority;
+    $priority_2->name='Segundo';
+    $priority_2->save();
+
+    $priority_3 = new Priority;
+    $priority_3->name='Tercero';
+    $priority_3->save();
+
+    //Qualification
+    $qualification_1 = new Qualification;
+    $qualification_1->name='10';
+    $qualification_1->display_name='Excelente';
+    $qualification_1->save();
+
+    $qualification_2 = new Qualification;
+    $qualification_2->name='8';
+    $qualification_2->display_name='Bueno';
+    $qualification_2->save();
+
+    $qualification_3 = new Qualification;
+    $qualification_3->name='5';
+    $qualification_3->display_name='Malo';
+    $qualification_3->save();
+
+    $qualification_4 = new Qualification;
+    $qualification_4->name='0';
+    $qualification_4->display_name='Omitido';
+    $qualification_4->save();
+    //Question
+    $question_1 = new Question;
+    $question_1->name='¿Cómo calificaría la limpieza en las habitaciones?';
+    $question_1->save();
+
+    $question_2 = new Question;
+    $question_2->name='¿Cómo calificaría las áreas verdes y la piscina?';
+    $question_2->save();
+
+    $question_3 = new Question;
+    $question_3->name='¿Cómo calificaría la calidad del producto y del servicio en el restaurante?';
+    $question_3->save();
+
+    $question_4 = new Question;
+    $question_4->name='¿Está satisfecho con el trato y la información otorgada al momento de realizar su reservación?';
+    $question_4->save();
+
+    $question_5 = new Question;
+    $question_5->name='¿Como esta el dia de hoy?';
+    $question_5->save();
+
+    $question_6 = new Question;
+    $question_6->name='¿Que tal su estancia?';
+    $question_6->save();
+
+    //Survey
+    $survey_1 = new Survey;
+    $survey_1->name='Encuesta de Calidad';
+    $survey_1->status='1';
+    $survey_1->category_id='1';
+    $survey_1->save();
+
+    //Venue
+    $venue_1 = new Venue;
+    $venue_1->name='Casa Maya';
+    $venue_1->address='Sin informacion';
+    $venue_1->city ='Cancun';
+    $venue_1->country ='Mexico';
+    $venue_1->telephone ='Sin informacion';
+    $venue_1->SSID ='PRUEBA1-X';
+    $venue_1->sector_id ='1';
+    $venue_1->timezone_id ='1';
+    $venue_1->generated_id ='1';
+    $venue_1->save();
+
+    $venue_2 = new Venue;
+    $venue_2->name='Panama Jack';
+    $venue_2->address='Sin informacion';
+    $venue_2->city ='Cancun';
+    $venue_2->country ='Mexico';
+    $venue_2->telephone ='Sin informacion';
+    $venue_2->SSID ='sss';
+    $venue_2->sector_id ='1';
+    $venue_2->timezone_id ='1';
+    $venue_1->generated_id ='1';
+    $venue_2->save();
+    //Asocio
+    $Asocio_000 = DB::table('survey_venue')->insert(['survey_id' => $survey_1->id ,'venue_id' => $venue_1->id ,'priority_id' => $priority_1->id]);
+
+    $Asocio_001 = DB::table('user_venue')->insert(['user_id' => $user_2->id  ,'venue_id' => $venue_1->id]);
+    $Asocio_002 = DB::table('user_venue')->insert(['user_id' => $user_2->id  ,'venue_id' => $venue_2->id]);
 
     }
 }
