@@ -54,6 +54,20 @@ return [
             'engine' => null,
         ],
 
+        'sunrisezq' => [
+            'driver' => 'mysql',
+            'host' => '187.130.75.27',
+            'port' => '3306',
+            'database' => 'radius',
+            'username' => 'admin',
+            'password' => 'W1f1s1t',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

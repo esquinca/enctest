@@ -51,15 +51,6 @@ class encController extends Controller
 		session(['res' => $request->res]);
 		session(['auth' => $request->auth]);
 
-
-		// $datos = [
-		//  'tema' => $subject,
-		//  'ip' => $host,
-		//  'hotel' => $nombrehotel,
-		//  'nombre' => $nombre,
-		//  'mensaje' => $msj,
-		// ];
-
 		return 'OK';
 	}
 
@@ -135,7 +126,11 @@ class encController extends Controller
 			//$codenum = "3";
 			return 'FALSE';
 		}
-		
+	}
+
+	public function guestEncRes(Request $request)
+	{
+		return 'OK';
 	}
 
 	public function testfunc()
@@ -154,7 +149,7 @@ class encController extends Controller
         $platform = $agent->platform();
         $version2 = $agent->version($platform);
 
-     $res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', 'EC:9B:F3:6F:F6:40')->value('guest_mac');
+     	$res = DB::table('guests')->select('guest_mac')->where('guest_mac', '=', 'EC:9B:F3:6F:F6:40')->value('guest_mac');
         $ssid = DB::table('venues')->select('id')->where('SSID', '=', 'PRUEBA1-X')->value('id');
         //$result = DB::select('CALL GetGuestSurvey(?, ?, ?)', array(1, 4, 'EC:9B:F3:6F:F6:47'));
         $resultp2 = DB::select('CALL GetEncuestaP2(?, ?)', array('PRUEBA1-X', 'EC:9B:F3:6F:F6:47'));

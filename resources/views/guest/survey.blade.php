@@ -9,6 +9,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="white-box">
               <form class="form-horizontal form-material" id="loginform" action="index.html">
+                {{ csrf_field() }}
                 <div class="form-group">
                   <div class="col-xs-12 text-center">
                     <div class="user-thumb text-center"> <img alt="thumbnail" class="rounded" width="100" src="../images/venue/demo.png">
@@ -40,7 +41,7 @@
                 </div>
                 <div class="form-group text-center">
                   <div class="col-xs-12">
-                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Completar</button>
+                    <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" id="btnEncIn" type="button">Completar</button>
                   </div>
                 </div>
               </form>
