@@ -14,12 +14,16 @@ class CreateQualificationQuestionTable extends Migration
     public function up()
     {
         Schema::create('qualification_question', function (Blueprint $table) {
-            // $table->increments('id');
+            $table->increments('id');
             $table->integer('qualification_id')->unsigned();
             $table->integer('question_id')->unsigned();
+            $table->integer('venue_id')->unsigned();
+            $table->integer('guest_id')->unsigned();
             $table->foreign('qualification_id')->references('id')->on('qualifications');
             $table->foreign('question_id')->references('id')->on('questions');
-            // $table->timestamps();
+            $table->foreign('venue_id')->references('id')->on('venues');
+            $table->foreign('guest_id')->references('id')->on('guests');
+            $table->timestamps();
         });
     }
 
